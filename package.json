@@ -1,6 +1,7 @@
 {
   "name": "fronttestApi",
   "version": "1.0.0",
+  "author": "Maria Lisboa <maria.developer.ti@gmail.com>",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
