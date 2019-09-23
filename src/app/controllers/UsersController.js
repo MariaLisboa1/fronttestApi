@@ -42,7 +42,7 @@ class UsersController {
     const {
       email,
       password,
-      againPassword
+      confirmPassword
     } = req.body;
 
     const userExists = await users.findOne({
@@ -51,7 +51,7 @@ class UsersController {
       }
     });
 
-    if (!userExists && againPassword !== password) {
+    if (!userExists && confirmPassword !== password) {
       return res.status(401).json({
         error: 'User not exists or password does not match',
       });

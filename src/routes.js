@@ -7,7 +7,7 @@ import SessionController from "./app/controllers/SessionController";
 const routes = new Router();
 
 routes.post("/register", UsersController.store);
-routes.put("/changePassword", UsersController.update);
+routes.put("/redefinePassword", UsersController.update);
 
 routes.post("/session", SessionController.store);
 
