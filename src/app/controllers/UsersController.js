@@ -14,11 +14,62 @@ class UsersController {
       });
     }
 
-    const { email, password } = users.create(req.body);
+    const {
+      email,
+      password,
+      nameSocialReason,
+      cpf,
+      phone,
+      cep,
+      publicplace,
+      num,
+      neighborhood
+    } = users.create(req.body);
 
     return res.json({
-      email
+      email,
+      nameSocialReason,
+      cpf,
+      phone,
+      cep,
+      publicplace,
+      num,
+      neighborhood
     });
+  }
+
+  async update(req, res) {
+    const {
+      email,
+      password,
+      againPassword
+    } = req.body;
+
+    const userExists = await users.findOne({
+      where: {
+        email
+      }
+    });
+
+    if (!userExists && againPassword !== password) {
+      return res.status(401).json({
+        error: 'User not exists or password does not match',
+      });
+    }
+
+    const envia = await users.update({
+        password: password
+      }, {
+        where: {
+          email
+        }
+      }
+
+    )
+
+    return res.json({
+      message: "Password changed successfully"
+    })
   }
 }
 

@@ -16,6 +16,34 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      nameSocialReason: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      cpf: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      phone: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      cep: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      publicplace: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      num: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      neighborhood: {
+        type: Sequelize.STRING,
+        allowNull: false
       }
     });
   },
