@@ -71,6 +71,46 @@ class UsersController {
       message: "Password changed successfully"
     })
   }
+
+  async updateName(req, res) {
+    const {
+      oldPassword,
+      newPassword,
+      email,
+      name
+    } = req.body;
+
+    const userExists = await users.findOne({
+      where: {
+        email
+      }
+    });
+
+
+
+
+    if (!userExists || oldPassword !== userExists.password) {
+      return res.status(401).json({
+        error: 'User not exists or password does not match',
+      });
+    }
+
+
+    const envia = await users.update({
+        password: newPassword,
+        nameSocialReason: name
+      }, {
+        where: {
+          email
+        }
+      }
+
+    )
+    return res.json({
+      name,
+      email
+    })
+  }
 }
 
 export default new UsersController();

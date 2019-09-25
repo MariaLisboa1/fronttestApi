@@ -8,6 +8,7 @@ const routes = new Router();
 
 routes.post("/register", UsersController.store);
 routes.put("/redefinePassword", UsersController.update);
+routes.put("/editProfile", UsersController.updateName);
 
 routes.post("/session", SessionController.store);
 
